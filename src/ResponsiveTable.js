@@ -1,6 +1,13 @@
 import "./App.css";
+import { useState } from "react";
 
 function ResponsiveTable() {
+  const [toogleState, setToggleState] = useState(1);
+
+  const toggleTab = (index) => {
+    setToggleState(index);
+  };
+
   const row1_values = [
     " 25AP1IG ",
     " 25AP2IG ",
@@ -28,9 +35,15 @@ function ResponsiveTable() {
   const row6_value = <td> Yeniden Başlat </td>;
   return (
     <main className="table">
-      <section className="table__header">
-        <h1>SİSTEM DURUM EKRANI</h1>
+      <section className="tabs">
+        <section onClick={() => toggleTab(1)} className="tab">
+          <h1>SİSTEM DURUM EKRANI</h1>
+        </section>
+        <section onClick={() => toggleTab(1)} className="tab">
+          <h1>EĞİTMEN /BRİFİNG /TAKTİK PLAN BİLGİSAYARLARI</h1>
+        </section>
       </section>
+
       <section className="table__body">
         <table>
           <thead>
