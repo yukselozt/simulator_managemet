@@ -1,6 +1,31 @@
 import "./App.css";
 
 function ResponsiveTable() {
+  const row1_values = [
+    " 25AP1IG ",
+    " 25AP2IG ",
+    " 50AP1IG ",
+    " 50AP2IG ",
+    " OMA1IG ",
+    " OMA2IG ",
+    " OMA3IG ",
+    " OMA4IG ",
+    " OKUN1IG ",
+    " OKUN2IG ",
+    " OKUN3IG ",
+    " OKUN4IG ",
+    " AE1IG ",
+    " AE2IG ",
+    " AE3IG ",
+    " AE4IG ",
+    " HP1IG ",
+    " HP2IG ",
+  ];
+  const row2_value = <td> Bilgisayar Aktif </td>;
+  const row3_value = <td> Ağ Aktif </td>;
+  const row4_value = <td> Aç </td>;
+  const row5_value = <td> Kapat </td>;
+  const row6_value = <td> Yeniden Başlat </td>;
   return (
     <main className="table">
       <section className="table__header">
@@ -11,7 +36,7 @@ function ResponsiveTable() {
           <thead>
             <tr>
               <th colSpan={2}> 25m ATIŞ POLİGONU </th>
-              <th colSpan={2}> 50m STIŞ POLİGONU </th>
+              <th colSpan={2}> 50m ATIŞ POLİGONU </th>
               <th colSpan={4}> OMA </th>
               <th colSpan={4}> OKUN </th>
               <th colSpan={4}> ATIŞ EVİ </th>
@@ -20,124 +45,34 @@ function ResponsiveTable() {
           </thead>
           <tbody>
             <tr>
-              <td> 25AP1IG </td>
-              <td> 25AP2IG </td>
-              <td> 50AP1IG </td>
-              <td> 25AP2IG </td>
-              <td> OMA1IG </td>
-              <td> OMA2IG </td>
-              <td> OMA3IG </td>
-              <td> OMA4IG </td>
-              <td> OKUN1IG </td>
-              <td> OKUN2IG </td>
-              <td> OKUN3IG </td>
-              <td> OKUN4IG </td>
-              <td> AE1IG </td>
-              <td> AE2IG </td>
-              <td> AE3IG </td>
-              <td> AE4IG </td>
-              <td> HP1IG </td>
-              <td> HP2IG </td>
+              {row1_values.map((val, key) => {
+                return <td key={key}>{val}</td>;
+              })}
             </tr>
             <tr>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
-              <td>Bilgisayar Aktif</td>
+              {row1_values.map(() => {
+                return row2_value;
+              })}
             </tr>
             <tr>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
-              <td>Ağ Aktif</td>
+              {row1_values.map(() => {
+                return row3_value;
+              })}
             </tr>
             <tr>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
-              <td>Aç</td>
+              {row1_values.map(() => {
+                return row4_value;
+              })}
             </tr>
             <tr>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
-              <td>Kapat</td>
+              {row1_values.map(() => {
+                return row5_value;
+              })}
             </tr>
             <tr>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
-              <td>Yeniden Başlat</td>
+              {row1_values.map(() => {
+                return row6_value;
+              })}
             </tr>
           </tbody>
         </table>
