@@ -1,13 +1,6 @@
 import "./App.css";
 
 function ResponsiveTable() {
-  const states = [
-    "Bilgisayar Aktif",
-    "Ağ Aktif",
-    "Aç",
-    "Kapat",
-    "Yeniden Başlat",
-  ];
   return (
     <main className="table">
       <section className="table__header">
