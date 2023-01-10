@@ -33,10 +33,22 @@ main.table {
   padding-top: 1.6rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
+}
+
+.tab {
+  color: rgba(0, 0, 0, 0.171);
+  cursor: pointer;
 }
 
 .table__body {
+  display: none;
+  background: none;
+}
+
+.table__body__active {
+  display: flex;
+  justify-content: center;
   width: 100%;
   max-height: 100%;
   background-color: rgba(240, 248, 255, 0.411);
@@ -45,18 +57,18 @@ main.table {
   overflow: auto; /*creates default scrollbar*/
 }
 
-.table__body::-webkit-scrollbar {
+.table__body__active::-webkit-scrollbar {
   width: 0.5rem;
   height: 0.5rem;
 }
 
-.table__body::-webkit-scrollbar-thumb {
+.table__body__active::-webkit-scrollbar-thumb {
   border-radius: 0.5rem;
   background-color: #0004;
   visibility: hidden;
 }
 
-.table__body:hover::-webkit-scrollbar-thumb {
+.table__body__active:hover::-webkit-scrollbar-thumb {
   visibility: visible;
 }
 
@@ -91,22 +103,17 @@ tr:nth-child(2),
 tr:nth-child(3) {
   color: #37ff14;
 }
-tr:nth-child(4):hover,
-tr:nth-child(5):hover,
-tr:nth-child(6):hover {
-  cursor: pointer;
-}
 
 /************************************************************/
 
-.grid {
+.grid__active {
   padding-left: 30px;
   padding-top: 40px;
   text-align: center;
   height: 100%;
 }
 
-.grid button {
+.grid__active button {
   background-color: #1a5a0fef;
   border-color: rgb(54, 90, 66);
   width: 300px;
@@ -116,7 +123,7 @@ tr:nth-child(6):hover {
   color: azure;
 }
 
-.grid button:hover {
+.grid__active button:hover {
   -webkit-box-shadow: 4px 4px 41px 6px rgba(39, 125, 52, 1);
   -moz-box-shadow: 4px 4px 41px 6px rgba(39, 125, 52, 1);
   box-shadow: 4px 4px 41px 6px rgba(39, 125, 52, 1);
