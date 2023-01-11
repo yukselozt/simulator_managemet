@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
+import io from "socket.io-client";
 import {
   egitim_alani_degerleri,
   egitmen_konsolu_degerleri,
@@ -11,11 +12,24 @@ import {
 } from "./Consts";
 
 function ResponsiveTable() {
+  const socket = io.connect("http://localhost:3001");
+
+  const sendMessage = () => {
+    socket.emit("send_message", { message: "Hello" });
+  };
+
   const row2_value = <td> Bilgisayar Aktif </td>;
   const row3_value = <td> Ağ Aktif </td>;
   const row4_value = (
     <td>
-      <button style={button_style}>Aç</button>
+      <button
+        onClick={() => {
+          sendMessage();
+        }}
+        style={button_style}
+      >
+        Aç
+      </button>
     </td>
   );
   const row5_value = (
