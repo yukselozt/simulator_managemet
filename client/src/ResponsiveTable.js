@@ -1,7 +1,8 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import io from "socket.io-client";
+
 import {
   egitim_alani_degerleri,
   egitmen_konsolu_degerleri,
@@ -14,9 +15,27 @@ import {
 function ResponsiveTable() {
   const socket = io.connect("http://localhost:3001");
 
-  const sendMessage = () => {
-    socket.emit("send_message", { message: "Hello" });
+  const sendMessage_egitim_alani = (index, command) => {
+    socket.emit("send_message", {
+      name: egitim_alani_degerleri[index],
+      command: command,
+      device: "pc",
+    });
   };
+  const sendMessage_egitmen_brifing = (index, command) => {
+    socket.emit("send_message", {
+      name: egitmen_konsolu_degerleri[index],
+      command: command,
+      device: "pc",
+    });
+  };
+
+  //To Broadcast for other users
+  /*useEffect(() => {
+    socket.on("receive_message", (data) => {
+      alert(data.message);
+    });
+  }, [socket]);*/
 
   const row2_value = <td> Bilgisayar Aktif </td>;
   const row3_value = <td> Ağ Aktif </td>;
@@ -24,7 +43,8 @@ function ResponsiveTable() {
     <td>
       <button
         onClick={() => {
-          sendMessage();
+          sendMessage_egitim_alani();
+          console.log(row5_value.props.children.props.children);
         }}
         style={button_style}
       >
@@ -39,7 +59,7 @@ function ResponsiveTable() {
   );
   const row6_value = (
     <td>
-      <button style={button_style}>Yeniden Başlat</button>
+      <button style={button_style}> Yeniden Başlat </button>
     </td>
   );
 
@@ -120,18 +140,63 @@ function ResponsiveTable() {
                 })}
               </tr>
               <tr>
-                {egitim_alani_degerleri.map(() => {
-                  return row4_value;
+                {egitim_alani_degerleri.map((val, key) => {
+                  return (
+                    <td>
+                      <button
+                        onClick={() => {
+                          sendMessage_egitim_alani(
+                            key,
+                            row4_value.props.children.props.children
+                          );
+                          console.log(key);
+                        }}
+                        style={button_style}
+                      >
+                        Aç
+                      </button>
+                    </td>
+                  );
                 })}
               </tr>
               <tr>
-                {egitim_alani_degerleri.map(() => {
-                  return row5_value;
+                {egitim_alani_degerleri.map((val, key) => {
+                  return (
+                    <td>
+                      <button
+                        onClick={() => {
+                          sendMessage_egitim_alani(
+                            key,
+                            row5_value.props.children.props.children
+                          );
+                          console.log(key);
+                        }}
+                        style={button_style}
+                      >
+                        Kapat
+                      </button>
+                    </td>
+                  );
                 })}
               </tr>
               <tr>
-                {egitim_alani_degerleri.map(() => {
-                  return row6_value;
+                {egitim_alani_degerleri.map((val, key) => {
+                  return (
+                    <td>
+                      <button
+                        onClick={() => {
+                          sendMessage_egitim_alani(
+                            key,
+                            row6_value.props.children.props.children
+                          );
+                          console.log(key);
+                        }}
+                        style={button_style}
+                      >
+                        Yeniden Başlat
+                      </button>
+                    </td>
+                  );
                 })}
               </tr>
             </tbody>
@@ -165,18 +230,64 @@ function ResponsiveTable() {
                 })}
               </tr>
               <tr>
-                {egitmen_konsolu_degerleri.map(() => {
-                  return row4_value;
+                {egitmen_konsolu_degerleri.map((val, key) => {
+                  return (
+                    <td>
+                      <button
+                        onClick={() => {
+                          sendMessage_egitmen_brifing(
+                            key,
+                            row4_value.props.children.props.children
+                          );
+                          console.log(key);
+                        }}
+                        style={button_style}
+                      >
+                        Aç
+                      </button>
+                    </td>
+                  );
                 })}
               </tr>
               <tr>
-                {egitmen_konsolu_degerleri.map(() => {
-                  return row5_value;
+                {egitmen_konsolu_degerleri.map((val, key) => {
+                  return (
+                    <td>
+                      <button
+                        onClick={() => {
+                          sendMessage_egitmen_brifing(
+                            key,
+                            row5_value.props.children.props.children
+                          );
+                          console.log(key);
+                        }}
+                        style={button_style}
+                      >
+                        Kapat
+                      </button>
+                    </td>
+                  );
                 })}
               </tr>
               <tr>
-                {egitmen_konsolu_degerleri.map(() => {
-                  return row6_value;
+                {egitmen_konsolu_degerleri.map((val, key) => {
+                  return (
+                    <td>
+                      <button
+                        onClick={() => {
+                          sendMessage_egitmen_brifing(
+                            key,
+                            row6_value.props.children.props.children
+                          );
+
+                          console.log(key);
+                        }}
+                        style={button_style}
+                      >
+                        Yeniden Başlat
+                      </button>
+                    </td>
+                  );
                 })}
               </tr>
             </tbody>
